@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+        }
+
+        .card {
+            width: 160px;
+            height: 240px;
+            border-radius: 10px;
+            overflow: hidden;  /* 튀어나오는부분 자르기 */
+            background: #ca785c;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card img {
+            width: 160px;
+            height: 172px;
+            object-fit: none;
+            object-position: 55% 56%;
+        }
+
+        .text {
+            color: white;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+        }
+
+        .title {
+            font-weight: 700;
+            font-size: 16px;
+            padding-bottom: 12px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .name, .date {
+            font-weight: 700;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="/05_mission/image/a16fabed86eeb187c1e5f8823914fafb06da4634.jpg" alt="이미지">
+        <div class="text">
+            <div class="title">인테리어란?</div>
+            
+            <div class="info">
+            <span class="name">김작가</span>
+            <span class="date">2024.01.01</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

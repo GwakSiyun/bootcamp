@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+    <h2>기존 내용</h2>
+    </div>
+    <button onclick="createElements()">요소 생성하기</button>
+
+    <script>
+        function createElements() {
+            const container = document.getElementById("container");
+
+            const newDiv = document.createElement("div");
+            const paragraph = document.createElement("p");
+            const span = document.createElement("span");
+
+            const text1 = document.createTextNode("안녕하세요! ");
+            const text2 = document.createTextNode("createElement로 만든 요소입니다.");
+            const text3 = document.createTextNode("이 텍스트는 span입니다.");
+
+            paragraph.appendChild(text1);
+            paragraph.appendChild(text2);
+            span.appendChild(text3);
+
+            newDiv.appendChild(paragraph);
+            newDiv.appendChild(span);
+
+            container.appendChild(newDiv);
+        }   
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+        font-family: Arial, sans-serif;
+        max-width: 500px;
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .box {
+        padding: 15px;
+        margin: 10px 0;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    .highlight {
+        background-color: #ffffcc;
+        border-color: #ffcc00;
+    }
+
+    .item {
+        padding: 8px;
+        margin: 5px 0;
+        background-color: #e9ecef;
+        border-left: 3px solid #007bff;
+    }
+
+    button {
+        padding: 10px 20px;
+        margin: 5px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <div id="box1" class="box">첫 번째 박스</div>
+    <div id="box2" class="box">두 번째 박스</div>
+    <div id="box3" class="box highlight">세 번째 박스</div>
+
+    <div item="item1" class="item">첫 번째 아이템</div>
+    <div item="item1" class="item">두 번째 아이템</div>
+    <div item="item1" class="item">세 번째 아이템</div>
+    <div item="item1" class="item">네 번째 아이템</div>
+
+    <p class="highlight">하이라이트된 문단입니다.</p>
+
+    <button onclick="changeBox()">모든 박스 선택</button>
+    <button onclick="changeItem()">모든 아이템 선택</button>
+    <br>
+    <button onclick="changeHighlight()">하이라이트 요소들 선택</button>
+
+    <script>
+        function changeBox () {
+            var box = document.getElementsByClassName("box");
+
+            for (var i = 0; i < box.length; i++) {
+                box[i].textContent = "선택된 박스 " + (i + 1);
+                box[i].style.backgroundColor = "#c36d6c";
+                box[i].style.padding = "15px";
+                box[i].style.borderRadius = "5px";
+                box[i].style.margin = "10px 0";
+            }
+        }
+
+        function changeItem() {
+            var items = document.getElementsByClassName("item");
+
+            for (var i = 0; i < items.length; i++) {
+                items[i].innerHTML = "새로운 아이템" + (i + 1);
+                items[i].style.backgroundColor = "#ccffcc";
+                items[i].style.borderLeftColor = "#28a745";
+            }
+        }
+
+        function changeHighlight() {
+            var highlight = document.getElementsByClassName("highlight");
+
+            for (var i = 0; i < highlight.length; i++) {
+                highlight[i].style.backgroundColor = "#ffdddd";
+                highlight[i].style.fontweight = "bold";
+                highlight[i].innerHTML = highlight[i].innerHTML + " (수정됨)";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container {
+        border: 2px solid #333;
+        margin: 10px;
+        padding: 10px;
+        background-color: #f9f9f9;
+    }
+    .target {
+        border: 2px solid blue;
+        padding: 10px;
+        margin: 5px;
+        background-color: white;
+    }
+    .highlight {
+        background-color: yellow;
+        border: 1px solid red;
+        padding: 3px;
+        margin: 2px;
+    }
+    button {
+        margin: 5px;
+        padding: 5px 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="target" class="target">
+            <span>기존 자식1</span>
+            <span>기존 자식2</span>
+        </div>
+
+        <p>다른 형제 요소</p>
+    </div>
+
+    <div>
+        <button onclick="testBefore()">before() 테스트</button>
+        <button onclick="testAfter()">after() 테스트</button>
+        <button onclick="testPrepend()">prepend() 테스트</button>
+        <button onclick="testAppend()">append() 테스트</button>
+        <button onclick="testAppendChild()">appendChild() 테스트</button>
+        <button onclick="testStringInsert()">문자열 삽입 비교</button>
+    </div>
+    
+    <script>
+        function testBefore() {
+            const target = document.getElementById("target");
+            const newElement = document.createElement("div");
+            newElement.textContent = "before()로 추가된 요소";
+            newElement.className = "highlight";
+            target.before(newElement);
+        }
+
+        function testBefore() {
+            const target = document.getElementById("target");
+            const newElement = document.createElement("div");
+            newElement.textContent = "before()로 추가된 요소";
+            newElement.className = "highlight";
+            target.before(newElement);
+        }
+
+        function testAfter() {
+            const target = document.getElementById("target");
+            const newElement = document.createElement("div");
+            newElement.textContent = "after()로 추가된 요소";
+            newElement.className = "highlight";
+            target.after(newElement);
+        }
+
+        function testPrepend() {
+        const target = document.getElementById("target");
+        const newElement = document.createElement("div");
+        newElement.textContent = "prepend()로 추가된 요소";
+        newElement.className = "highlight";
+
+        target.prepend(newElement);
+        }
+
+        function testAppend() {
+        const target = document.getElementById("target");
+        const newElement = document.createElement("div");
+        newElement.textContent = "append()로 추가된 요소";
+        newElement.className = "highlight";
+
+        target.append(newElement);
+        }
+
+        function testAppendChild() {
+        const target = document.getElementById("target");
+        const newElement = document.createElement("div");
+        newElement.textContent = "appendChild()로 추가된 요소";
+        newElement.className = "highlight";
+
+        target.appendChild(newElement);
+        }
+
+        function testStringInsert() {
+        const target = document.getElementById("target");
+
+        target.append("append()로 추가된 문자열");
+        target.prepend(123);
+        }
+    </script>
+</body>
+</html>

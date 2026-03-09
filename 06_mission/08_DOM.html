@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container {
+        border: 2px solid blue;
+        padding: 10px;
+        margin: 10px;
+    }
+    .old {
+        background: red;
+        color: white;
+        padding: 5px;
+        margin: 3px;
+    }
+    .new {
+        background: green;
+        color: white;
+        padding: 5px;
+        margin: 3px;
+    }
+    </style>
+</head>
+<body>
+    <div id="container" class="container">
+        <p class="old" id="child1">교체될 자식 1</p>
+        <p class="old" id="child2">교체될 자식 2</p>
+        <p class="old" id="child3">교체될 자식 3</p>
+    </div>
+    
+    <button onclick="replaceFirst()">새로운 첫 번째 자식</button>
+    <button onclick="replaceSecond()">새로운 두 번째 자식</button>
+    <button onclick="replaceThird()">새로운 세 번재 자식</button>
+
+    <script>
+    function replaceFirst() {
+        const container = document.getElementById("container");
+        const oldChild = document.getElementById("child1");
+        const newChild = document.createElement("div");
+        newChild.textContent = "새로운 첫 번째 자식";
+        newChild.className = "new";
+
+        container.replaceChild(newChild, oldChild);
+    }
+
+    function replaceSecond() {
+        const container = document.getElementById("container");
+        const oldChild = document.getElementById("child2");
+        const newChild = document.createElement("span");
+        newChild.textContent = "새로운 두 번째 자식";
+        newChild.className = "new";
+
+        container.replaceChild(newChild, oldChild);
+    }
+
+    function replaceThird() {
+        const container = document.getElementById("container");
+        const oldChild = document.getElementById("child3");
+        const newChild = document.createElement("h3");
+        newChild.textContent = "새로운 세 번째 자식";
+        newChild.className = "new";
+
+        container.replaceChild(newChild, oldChild);
+    }
+    </script>
+</body>
+</html>

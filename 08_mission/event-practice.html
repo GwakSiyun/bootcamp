@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사용자 입력 양식 이벤트 연습하기</title>
+    <style>
+    body{
+    font-family: Arial;
+    padding:40px;
+    }
+
+    .container{
+    width:600px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    margin-bottom:20px;
+    border:1px solid #ccc;
+    border-radius:4px;
+    }
+
+    textarea{
+    height:120px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"]{
+    width:auto;
+    margin-right:5px;
+    }
+
+    .gender{
+    margin-bottom:20px;
+    }
+
+    button{
+    background:#2c7ecb;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:4px;
+    cursor:pointer;
+    }
+
+    .count{
+    color:#666;
+    margin-bottom:20px;
+    }
+
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    select:focus,
+    textarea:focus {
+    outline: 3px dashed black; 
+    background-color: #a9cbeb;     
+    }
+
+.agree-section {
+    padding: 15px;
+    border-radius: 4px;
+}
+
+
+.agree-section:has(input:checked) {
+    background-color: #e8f5e9;
+    border: 1px solid #c8e6c9;
+}
+</style>
+</head>
+<body>
+    <h2>사용자 입력 양식 이벤트 연습하기</h2>
+<div class="container">
+
+<form id="userForm">
+<div class="field">
+<label>이름</label>
+<input type="text" placeholder="이름을 입력하세요" required>
+</div>
+
+<div class="field">
+<label>이메일</label>
+<input type="email" placeholder="example@domain.com" required>
+</div>
+
+<div class="field">
+<label>성별</label>
+<div class="gender">
+<input type="radio" name="gender"> 남자
+<input type="radio" name="gender"> 여자
+</div>
+</div>
+
+<div class="field">
+<label>참여 일자 선택</label>
+<select>
+<option>-- 날짜 선택 --</option>
+<option>2026년 3월 11일</option>
+<option>2026년 3월 12일</option>
+<option>2026년 3월 13일</option>
+</select>
+</div>
+
+<div class="field">
+<label>요청 사항</label>
+<textarea placeholder="요청 사항을 입력하세요" maxlength="500"></textarea>
+</div>
+<div class="count">0/500자</div>
+
+<div>
+    <div class="agree-section">
+    <input type="checkbox" id="agree" required>
+    <label for="agree">개인정보 수집에 동의합니다.</label> 
+    </div>
+</div>
+<br>
+
+<button type="submit">신청하기</button>
+</form>
+</div>
+
+<script>
+    document.querySelector("#userForm").addEventListener("submit", function(e) {
+        const data = document.querySelector("select").value;
+
+        if(data === "-- 날짜 선택 --") {
+            alert("참여 일자를 선택해주세요.");
+            e.preventDefault();
+        }
+    })
+
+    const textarea = document.querySelector("textarea");
+    const countDisplay = document.querySelector(".count");
+
+    textarea.addEventListener("input", function() {
+        const length = textarea.value.length;
+        countDisplay.textContent = `${length}/500자`;
+    })
+</script>
+</body>

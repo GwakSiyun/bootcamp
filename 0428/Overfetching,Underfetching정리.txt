@@ -1,0 +1,36 @@
+1. Over-fetching (과다 요청)
+ - 필요 없는 데이터까지 가져오는 경우
+
+ ex.
+ GET /users/1
+
+ 결과 :
+ {
+  "id": "1",
+  "username": "Alice",
+  "age": 25,
+  "email": "...",
+  "address": "..."
+}
+-> username만 필요해도 전부 받아옴
+
+2. Under-fetching (과소 요청)
+ - 한 번의 요청으로 필요한 데이터 다 못 가져오는 경우
+
+ ex. 
+ GET /users/1
+ GET /users/1/posts
+ -> 여러번 요청해야함
+
+ 3. GraphQL 해결 방식
+
+ ex. 
+ query {
+  user(id: "1") {
+    username
+    posts {
+      title
+    }
+  }
+}
+-> 한번에 필요한 데이터만 정확하게 가져옴

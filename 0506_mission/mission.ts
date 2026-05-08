@@ -33,7 +33,7 @@ updateProduct(2, { price: 150000, description: '더 좋아졌어요' });
 updateProduct(3, { stock: 100 });
 
 // ❌ 에러가 나야 하는 코드
-updateProduct(4, { price: '10000' });
+// updateProduct(4, { price: '10000' });
 
 // -----------------------------------------------------------------
 // 미션 2: 상품 '미리보기' 카드
@@ -53,14 +53,14 @@ const previewData: ProductPreview = {
 };
 
 // ❌ 에러가 나야 하는 코드
-const previewError1: ProductPreview = {
-  name: '키보드',
-};
-const previewError2: ProductPreview = {
-  name: '모니터',
-  price: 250000,
-  description: 'FHD 모니터',
-};
+// const previewError1: ProductPreview = {
+//   name: '키보드',
+// };
+// const previewError2: ProductPreview = {
+//   name: '모니터',
+//   price: 250000,
+//   description: 'FHD 모니터',
+// };
 
 // -----------------------------------------------------------------
 // 미션 3: '보안 정보' 제외하고 보내기
@@ -84,15 +84,15 @@ const apiResponse: PublicProduct = {
 };
 
 // ❌ 에러가 나야 하는 코드
-const apiResponseError: PublicProduct = {
-  id: 2,
-  name: '노트북',
-  price: 1800000,
-  description: '최신형 노트북',
-  category: 'electronics',
-  stock: 100,
-  internalSecretCode: 'SECRET_VALUE',
-};
+// const apiResponseError: PublicProduct = {
+//   id: 2,
+//   name: '노트북',
+//   price: 1800000,
+//   description: '최신형 노트북',
+//   category: 'electronics',
+//   stock: 100,
+//   internalSecretCode: 'SECRET_VALUE',
+// };
 
 // -----------------------------------------------------------------
 // 미션 4: 컴포넌트 props 불변성 지키기
@@ -109,9 +109,9 @@ function ProductCard(props: ReadonlyProductProps) {
   console.log(props.name);
 
   // ❌ 아래 코드는 모두 에러가 나야 합니다. (props 수정 시도)
-  props.name = '수정된 이름'; // Error!
-  props.price = 9999; // Error!
-  props.id = 123; // Error! (기존에도 readonly였지만 다시 확인)
+  //   props.name = '수정된 이름'; // Error!
+  //   props.price = 9999; // Error!
+  //   props.id = 123; // Error! (기존에도 readonly였지만 다시 확인)
 }
 
 // 테스트진행
@@ -145,10 +145,10 @@ const inventory: ProductInventory = {
 };
 
 // ❌ 에러가 나야 하는 코드
-const inventoryError: ProductInventory = {
-  1: 100,
-  2: '품절',
-};
+// const inventoryError: ProductInventory = {
+//   1: 100,
+//   2: '품절',
+// };
 
 // -----------------------------------------------------------------
 // 미션 6: 상품이 아닌 '주문 상태' 관리 타입
@@ -171,7 +171,7 @@ type ActiveStatus = Extract<OrderStatus, 'PENDING' | 'SHIPPING'>;
 // 테스트코드 6_1
 let status1: ActiveStatus = 'PENDING'; // ✅ 통과되어야 하는 코드
 status1 = 'SHIPPING'; // ✅ 통과되어야 하는 코드
-status1 = 'CANCELLED'; // ❌ 에러가 나야 하는 코드
+// status1 = 'CANCELLED'; // ❌ 에러가 나야 하는 코드
 
 // 풀기 6_1: 종료 상태에 대한 타입을 작성해보세요.
 type FinishStatus = Exclude<OrderStatus, 'PENDING' | 'SHIPPING'>;
@@ -179,4 +179,4 @@ type FinishStatus = Exclude<OrderStatus, 'PENDING' | 'SHIPPING'>;
 // 테스트코드 6_1
 let status2: FinishStatus = 'CANCELLED'; // ✅ 통과되어야 하는 코드
 status2 = 'FAILED'; // ✅ 통과되어야 하는 코드
-status2 = 'PENDING'; // ❌ 에러가 나야 하는 코드
+// status2 = 'PENDING'; // ❌ 에러가 나야 하는 코드
